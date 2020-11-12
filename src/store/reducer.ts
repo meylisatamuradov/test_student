@@ -12,9 +12,10 @@ const reducer = (
     case actionTypes.GET_LIST:
       let nArticle: IArticle = {
         id: action.article.id, // not really unique but it's just an example
-        FIO: action.article.FIO,
+        fio: action.article.fio,
         birth: action.article.birth,
-        mark:action.article.mark
+        mark:action.article.mark,
+        mark_name: action.article.mark_name
       };
       return {
         ...state,
@@ -24,7 +25,7 @@ const reducer = (
     case actionTypes.ADD_ARTICLE:
       let newArticle: IArticle = {
         id: action.article.id, // not really unique but it's just an example
-        FIO: action.article.FIO,
+        fio: action.article.fio,
         birth: action.article.birth,
         mark:action.article.mark
       };

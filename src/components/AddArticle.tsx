@@ -60,8 +60,8 @@ export const AddArticle: React.FC<Props> = ({ saveArticle ,show, handleClose }) 
     <form onSubmit={addNewArticle} className="Add-article">
       <input
         type="text"
-        id="FIO"
-        placeholder="FIO"
+        id="fio"
+        placeholder="fio"
         onChange={handleArticleData}
       />
      <DatePicker selected={startDate} dateFormat='dd-MM-yyyy' onChange={(date: Date) => {

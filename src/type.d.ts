@@ -1,8 +1,9 @@
 interface IArticle {
     id: number;
-    FIO: string;
+    fio: string;
     birth: string;
-    mark:number
+    mark:number;
+    mark_name?:string;
   }
   
   type ArticleState = {

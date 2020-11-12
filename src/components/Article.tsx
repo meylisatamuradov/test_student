@@ -26,7 +26,7 @@ export const Article: React.FC<Props> = ({ article, removeArticle, editArticle }
 
   const [student, setStudent] =  React.useState({
     id: article.id,
-    FIO:article.FIO,
+    fio:article.fio,
     birth: new Date(parseInt(article.birth.split('-')[2]), parseInt(article.birth.split('-')[1])-1, parseInt(article.birth.split('-')[0]) ),
     mark:article.mark
   });
@@ -62,9 +62,9 @@ export const Article: React.FC<Props> = ({ article, removeArticle, editArticle }
         <Row>
         <Col>
           <div>
-            <p><b>Name:</b> {article.FIO}</p>
+            <p><b>Name:</b> {article.fio}</p>
             <p><b>Birth date:</b> {article.birth}</p>
-            <p><b>Mark:</b> {article.mark}</p>
+            <p><b>Mark:</b> { article.mark_name ? article.mark  + " (" + article.mark_name+ ")" : article.mark} </p>
           </div>
         </Col>
         <Col>
@@ -85,9 +85,9 @@ export const Article: React.FC<Props> = ({ article, removeArticle, editArticle }
             <form onSubmit={editArticleUploader} className="Add-article">
             <input
               type="text"
-              id="FIO"
-              placeholder="FIO"
-              value = {student.FIO}
+              id="fio"
+              placeholder="fio"
+              value = {student.fio}
               onChange={handleStudentData}
             />
           <ReactDatePicker selected={student.birth} 

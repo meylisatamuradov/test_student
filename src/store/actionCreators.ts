@@ -34,12 +34,13 @@ export function removeArticle(article: IArticle) {
   };
   return simulateHttpRequest(action);
 }
+const SERVER_URL = 'http://localhost:5000/api/students/';
 
 export function simulateHttpRequest(action: ArticleAction) {
   return async (dispatch: DispatchType) => {
     if(action.type === actionTypes.GET_LIST)
     {
-      const { data } = await Axios.get('http://localhost:5000/api/students');
+      const { data } = await Axios.get(SERVER_URL);
       console.log(data)
       data.map((e:IArticle)=> {
         action.article = e
@@ -48,16 +49,17 @@ export function simulateHttpRequest(action: ArticleAction) {
     }
     else if(action.type === actionTypes.ADD_ARTICLE)
     {
-      const { data } = await Axios.post('http://localhost:5000/api/students', action.article);
+      const { data } = await Axios.post(SERVER_URL, action.article);
       action.article.id = data.id
       dispatch(action);
     }else if(action.type === actionTypes.EDIT_ARTICLE)
     {
-       await Axios.put('http://localhost:5000/api/students/'+action.article.id, action.article);
+       const {data } = await Axios.put(SERVER_URL+action.article.id, action.article);
+       action.article.mark_name= data.mark_name;
       dispatch(action);
     }else if(action.type === actionTypes.REMOVE_ARTICLE)
     {
-      await Axios.delete('http://localhost:5000/api/students/'+action.article.id); 
+      await Axios.delete(SERVER_URL+action.article.id); 
       dispatch(action);
     }
   };

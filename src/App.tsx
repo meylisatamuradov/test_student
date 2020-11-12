@@ -11,9 +11,10 @@ import { Button } from "react-bootstrap";
 const App: React.FC = () => {
   const [articleDefault, setArticle] = React.useState<IArticle>( {
     id:0,
-    FIO:'',
+    fio:'',
     birth:'',
-    mark:2
+    mark:2,
+    mark_name:''
   });
 
   const [show, setShow] = React.useState( {
@@ -51,9 +52,9 @@ const App: React.FC = () => {
       </Button>
 
       <AddArticle saveArticle={saveArticle} show = {show} handleClose={handleClose} />
-      { articles.map((article: IArticle) =>  
+      { articles.length> 0 ? articles.map((article: IArticle) =>  
        (<Article key={article.id} article={article} removeArticle={removeArticle} editArticle={editArticle}/>)
-      ) }
+      ) : <h3 style={{color:"red", textAlign:"center", marginTop:"10px"}}> Unable to load data or Db is empty</h3> }
     </main>
   );
 };
