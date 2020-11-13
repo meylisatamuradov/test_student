@@ -27,7 +27,8 @@ const reducer = (
         id: action.article.id, // not really unique but it's just an example
         fio: action.article.fio,
         birth: action.article.birth,
-        mark:action.article.mark
+        mark:action.article.mark,
+        mark_name: action.article.mark_name
       };
       return {
         ...state,

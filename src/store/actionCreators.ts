@@ -34,7 +34,7 @@ export function removeArticle(article: IArticle) {
   };
   return simulateHttpRequest(action);
 }
-const SERVER_URL = 'http://localhost:5000/api/students/';
+const SERVER_URL = 'http://10.20.50.107:8087/students/';
 
 export function simulateHttpRequest(action: ArticleAction) {
   return async (dispatch: DispatchType) => {
@@ -50,7 +50,9 @@ export function simulateHttpRequest(action: ArticleAction) {
     else if(action.type === actionTypes.ADD_ARTICLE)
     {
       const { data } = await Axios.post(SERVER_URL, action.article);
+      console.log(data)
       action.article.id = data.id
+      action.article.mark_name= data.mark_name;
       dispatch(action);
     }else if(action.type === actionTypes.EDIT_ARTICLE)
     {
