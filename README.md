@@ -11,6 +11,8 @@ In the project directory, you can run:
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
+Also make sure that your API server address is correct. If it is not you can change it in ./store/actionCreator.ts : const SERVER_URL 
+
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 

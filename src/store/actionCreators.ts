@@ -1,6 +1,9 @@
 import Axios from "axios";
 import * as actionTypes from "./actionTypes";
 
+const SERVER_URL = 'http://10.20.50.107:8087/students/';
+
+
 export function getList(article: IArticle) {
   const action: ArticleAction = {
     type: actionTypes.GET_LIST,
@@ -34,7 +37,6 @@ export function removeArticle(article: IArticle) {
   };
   return simulateHttpRequest(action);
 }
-const SERVER_URL = 'http://10.20.50.107:8087/students/';
 
 export function simulateHttpRequest(action: ArticleAction) {
   return async (dispatch: DispatchType) => {
